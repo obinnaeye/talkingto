@@ -39,4 +39,12 @@ const
     }
   });
 
+  app.get("/", (req, res) => {
+      res.status(200).send("<h3>Welcome To TalkingTo<h3>")
+  })
+
+  app.get("/messages", (req, res) => {
+      // some queries to db to get messages
+  })
+
 app.listen(process.env.PORT || 1234, () => console.log('webhook is listening'));
