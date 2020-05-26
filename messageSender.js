@@ -2,14 +2,14 @@ const request = require('request');
 
 module.exports = function sendMessage(recipientId, message){
     request({
-        url: "https://graph.facebook.com/v2.6/me/messages",
+        url: "https://graph.facebook.com/v7.0/me/messages",
         qs: {
             access_token: process.env.PAGE_ACCESS_TOKEN
         },
         method: "POST",
         json: {
             recipient: {id: recipientId},
-            message: message,
+            message: {text: message},
         }
     }, function(error, response, body) {
         if (!error) {
