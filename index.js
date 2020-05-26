@@ -13,12 +13,11 @@ const
     let body = req.body;
   
     if (body.object === 'page') {
-      const event = req.body.event
       body.entry.forEach(function(event) {
           if (event.message){
             let webhook_event = entry.messaging[0];
             const senderID = event.sender.id;
-            messageSender(senderID, "What is your name?");
+            messageSender(senderID, webhook_event);
           }
       });
     } else {
