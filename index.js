@@ -19,7 +19,8 @@ const
               let webhook_event = event.message;
               const senderID = event.sender.id;
               console.log({webhook_event})
-              messageSender(senderID, webhook_event);
+              res.sendStatus(200);
+              messageSender(senderID, webhook_event.text);
             }
         })
       });
