@@ -11,13 +11,13 @@ const
   app.post('/webhook', (req, res) => {  
  
     let body = req.body;
-    console.log(body.entry)
   
     if (body.object === 'page') {
       body.entry.forEach(function(event) {
           if (event.message){
             let webhook_event = entry.messaging[0];
             const senderID = event.sender.id;
+            console.log(webhook_event)
             messageSender(senderID, webhook_event);
           }
       });
