@@ -1,6 +1,6 @@
 'use strict';
 
-const messageSender = require("./messageSender")
+const processMessage = require("./processMessage")
 
 const
   express = require('express'),
@@ -15,12 +15,18 @@ const
       body.entry.forEach(function(entry) {
         console.log({entry: entry})
         entry.messaging.forEach(function(event) {
+            const senderID = event.sender.id;
             if (event.message && !event.message.is_echo){
               let webhook_event = event.message;
-              const senderID = event.sender.id;
               console.log({webhook_event})
               res.sendStatus(200);
-              messageSender(senderID, webhook_event.text);
+              processMessage(senderID, webhook_event.text);
+            }
+            if (event.postback) {
+              const webhook_event = event.postback.payload;
+              console.log({webhook_event})
+              res.sendStatus(200);
+              processMessage(senderID, webhook_event);
             }
         })
       });
@@ -32,7 +38,7 @@ const
 
   app.get('/webhook', (req, res) => {
 
-    let VERIFY_TOKEN = "YOUR_VERIFY_TOKEN"
+    let VERIFY_TOKEN = process.env.VERIFY_TOKEN
     let mode = req.query['hub.mode'];
     let token = req.query['hub.verify_token'];
     let challenge = req.query['hub.challenge'];
