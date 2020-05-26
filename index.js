@@ -1,5 +1,7 @@
 'use strict';
 
+const messageSender = require("./messageSender")
+
 const
   express = require('express'),
   bodyParser = require('body-parser'),
@@ -11,11 +13,14 @@ const
     let body = req.body;
   
     if (body.object === 'page') {
-      body.entry.forEach(function(entry) {
-        let webhook_event = entry.messaging[0];
-        console.log(webhook_event);
+      const event = req.body.event
+      body.entry.forEach(function(event) {
+          if (event.message){
+            let webhook_event = entry.messaging[0];
+            const senderID = event.sender.id;
+            messageSender(senderID, "What is your name?");
+          }
       });
-      res.status(200).send('EVENT_RECEIVED');
     } else {
       res.sendStatus(404);
     }
