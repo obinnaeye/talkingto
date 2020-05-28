@@ -1,4 +1,4 @@
-let mongoose = require('mongoose')
+let mongoose = require("mongoose");
 
 let messageSchema = new mongoose.Schema({
   mid: String,
@@ -6,17 +6,17 @@ let messageSchema = new mongoose.Schema({
   senderId: String,
   type: String,
   createdAt: Date,
-  updatedAt: Date
-})
+  updatedAt: Date,
+});
 
-messageSchema.pre('save', function (next) {
-    let now = Date.now()
-        
-    this.updatedAt = now
-    if (!this.createdAt) {
-        this.createdAt = now
-    }
-    next()    
-})
+messageSchema.pre("save", function (next) {
+  let now = Date.now();
 
-module.exports = mongoose.model('Message', messageSchema)
+  this.updatedAt = now;
+  if (!this.createdAt) {
+    this.createdAt = now;
+  }
+  next();
+});
+
+module.exports = mongoose.model("Message", messageSchema);
