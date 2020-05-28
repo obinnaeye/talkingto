@@ -13,5 +13,5 @@ module.exports = function getNextBirthDay(date) {
     if (month == m) {
         y2 = day <= d ? y + 1 : y
     }
-    return Math.floor((Date.UTC(y + 1, month, day) - Date.UTC(y, m, d) ) /(1000 * 60 * 60 * 24));
+    return Math.floor((Date.UTC(y2, month, day) - Date.UTC(y, m, d) ) /(1000 * 60 * 60 * 24));
 }
