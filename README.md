@@ -4,7 +4,7 @@
 
 A simple messenger bot. 
 
-To test the deployed app on Messenger without running an instance, please create an issue [here](https://github.com/obinnaeye/talkingto/issues/new) and request to be added as a developer. You have to drop your facebood profile so we can invite you.
+To test the deployed app on Messenger without running an instance, please create an issue [here](https://github.com/obinnaeye/talkingto/issues/new) and request to be added as a developer. You have to drop your facebood profile so we can invite you. See [demo](https://drive.google.com/file/d/1dpPApFOn1hzMaZVaOG60vv74eY9cqeDT/view?usp=sharing)
 
 ### PRIVACY POLICY:
 This app is just for educational purpose to teach learners how to build a Facebook Messenger bot.
