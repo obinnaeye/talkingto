@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "report-coverage": "jest --coverage && coveralls < coverage/lcov.info",
     "start": "node index.js"
   },
   "keywords": [
