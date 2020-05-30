@@ -1,6 +1,7 @@
 # talkingto
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![Build](https://travis-ci.org/obinnaeye/talkingto.svg?branch=master)](https://travis-ci.org/github/obinnaeye/talkingto)
 [![Coverage Status](https://coveralls.io/repos/github/obinnaeye/talkingto/badge.svg)](https://coveralls.io/github/obinnaeye/talkingto)
 
 A simple messenger bot.
