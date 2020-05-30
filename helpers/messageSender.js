@@ -1,6 +1,8 @@
 const request = require("request");
+const dotenv = require("dotenv");
+dotenv.config();
 
-module.exports = function sendMessage(recipientId, message) {
+module.exports = function messageSender(recipientId, message) {
   request(
     {
       url: "https://graph.facebook.com/v7.0/me/messages",
@@ -13,7 +15,7 @@ module.exports = function sendMessage(recipientId, message) {
         message: message,
       },
     },
-    function (error, response, body) {
+    (error, response, body) => {
       if (!error) {
         console.log("message sent!");
       } else {

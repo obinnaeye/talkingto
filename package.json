@@ -4,7 +4,8 @@
   "description": "Simple Messenger webhook example",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "report-coverage": "jest --coverage && coveralls < coverage/lcov.info",
     "start": "node index.js"
   },
   "keywords": [
@@ -15,11 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.9.16",
     "request": "2.88.0"
   },
   "devDependencies": {
+    "coveralls": "^3.1.0",
+    "jest": "^26.0.1",
     "prettier": "^2.0.5"
   },
   "pretty": "prettier --write \"./**/*.{js,jsx,json}\""

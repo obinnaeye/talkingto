@@ -34,20 +34,19 @@ class MessageController {
           }
           if (event.postback) {
             webhook_event = event.postback.payload;
-            console.log(event.postback);
-            mid = webhook_event.mid;
             type = "postback";
             res.sendStatus(200);
             processMessage(senderID, webhook_event);
           }
-
-          let message = new Message({
-            mid,
-            senderID,
-            message: webhook_event,
-            type,
-          });
-          message.save();
+          if (webhook_event) {
+            let message = new Message({
+              mid,
+              senderID,
+              message: webhook_event,
+              type,
+            });
+            message.save();
+          }
         });
       });
     } else {
@@ -55,17 +54,15 @@ class MessageController {
     }
   }
 
-  static getMessages(req, res) {
-    Message.find().then((messages) => {
-      res.status(200).send({ messages });
-    });
+  static async getMessages(req, res) {
+    const messages = await Message.find();
+    res.status(200).send({ messages });
   }
 
-  static getMessage(req, res) {
+  static async getMessage(req, res) {
     const mid = req.params.mid;
-    Message.find({ mid }).then((message) => {
-      res.status(200).send({ message });
-    });
+    const message = await Message.findOne({ mid }, (err, message) => {});
+    res.status(200).send({ message });
   }
 }
 
