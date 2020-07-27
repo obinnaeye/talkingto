@@ -24,5 +24,4 @@ To have a local instace of this project:
 
 ### TO DO:
 
-1. Add unit and integration testing
-2. Currently Messenger in-built NLP is integrated in the project but not being used. We will need a better of analyzing messages; use case is the yes/no response that allows multiple words.
+1. Currently Messenger in-built NLP is integrated in the project but not being used. We will need a better of analyzing messages; use case is the yes/no response that allows multiple words.
